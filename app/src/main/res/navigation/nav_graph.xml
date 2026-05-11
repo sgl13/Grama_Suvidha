@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.gramasuvidha.portal.ui.login.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_projectListFragment"
+            app:destination="@id/projectListFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.gramasuvidha.portal.ui.login.RegisterFragment"
+        android:label="Register" />
+
+    <fragment
+        android:id="@+id/logoutFragment"
+        android:name="com.gramasuvidha.portal.ui.login.LogoutFragment"
+        android:label="Logout" />
+
+    <fragment
+        android:id="@+id/projectListFragment"
+        android:name="com.gramasuvidha.portal.ui.list.ProjectListFragment"
+        android:label="Grama Suvidha"
+        tools:layout="@layout/fragment_project_list">
+        <action
+            android:id="@+id/action_projectListFragment_to_projectDetailFragment"
+            app:destination="@id/projectDetailFragment" />
+        <action
+            android:id="@+id/action_projectListFragment_to_logoutFragment"
+            app:destination="@id/logoutFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/projectDetailFragment"
+        android:name="com.gramasuvidha.portal.ui.detail.ProjectDetailFragment"
+        android:label="Project Detail"
+        tools:layout="@layout/fragment_project_detail">
+        <argument
+            android:name="projectId"
+            app:argType="string" />
+    </fragment>
+
+    <action
+        android:id="@+id/action_global_loginFragment"
+        app:destination="@id/loginFragment"
+        app:popUpTo="@id/nav_graph"
+        app:popUpToInclusive="true" />
+</navigation>
